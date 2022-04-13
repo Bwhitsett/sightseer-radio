@@ -106,6 +106,7 @@ const styles = StyleSheet.create({
         color: '#fff',
         fontSize: 50,
         alignSelf: 'center',
+        marginBottom: 10,
     },
     newsStoryText: {
         color: '#fff',
