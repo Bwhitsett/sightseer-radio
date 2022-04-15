@@ -104,70 +104,72 @@ class Weather extends React.Component {
    //if no match is found.
     setIcons = () => {
         let weatherIcons;
+        //Begin if
         if (this.state.forecast.shortForecast === "Sunny") {
             weatherIcons = icons.sun;
         }
-        else if (this.state.forecast.shortForecast === "Mostly Sunny") {
+        //Night Icons
+        else if ((this.state.forecast.name === "Tonight" ||
+        this.state.forecast.name === "Overnight") &&
+        this.state.forecast.shortForecast  === "Clear") {
+            weatherIcons = icons.moon;
+    }
+    else if ((this.state.forecast.name === "Tonight" ||
+            this.state.forecast.name === "Overnight") &&
+            (this.state.forecast.shortForecast  === "Chance Showers And Thunderstorms" ||
+            this.state.forecast.shortForecast === "Chance Rain Showers then Chance Rain And Snow Showers"  ||
+            this.state.forecast.shortForecast === "Chance Rain Showers" || 
+            this.state.forecast.shortForecast === "Chance Rain And Snow Showers" ||
+            this.state.forecast.shortForecast === "Slight Chance Rain Showers" ||
+            this.state.forecast.shortForecast === "Rain Showers" ||
+            this.state.forecast.shortForecast  === "Chance Showers And Thunderstorms then Showers And Thunderstorms" ||
+            this.state.forecast.shortForecast  === "Showers And Thunderstorms")) {
+        weatherIcons = icons.cloudMoonRain;
+        }
+        else if ((this.state.forecast.name === "Tonight" ||
+    this.state.forecast.name === "Overnight") &&
+    (this.state.forecast.shortForecast  === "Partly Cloudy" ||
+    this.state.forecast.shortForecast  === "Cloudy")) {
+        weatherIcons = icons.cloudMoon;
+        }
+        //day icons
+            else if (this.state.forecast.shortForecast === "Mostly Sunny") {
+                weatherIcons = icons.cloudSun;
+            }
+            else if (this.state.forecast.shortForecast === "Showers And Thunderstorms Likely" ||
+            this.state.forecast.shortForecast  === "Showers And Thunderstorms" ||
+            this.state.forecast.shortForecast  === "Chance Showers And Thunderstorms then Showers And Thunderstorms") {
+                weatherIcons = icons.cloudBolt;
+            }
+        else if (this.state.forecast.shortForecast === "Chance Rain Showers then Mostly Sunny" ||
+            this.state.forecast.shortForecast === "Partly Sunny then Slight Chance Rain Showers" ||
+            this.state.forecast.shortForecast === "Slight Chance Rain And Snow Showers then Partly Sunny" ||
+            this.state.forecast.shortForecast === "Chance Rain Showers then Chance Rain And Snow Showers"  ||
+            this.state.forecast.shortForecast === "Chance Rain Showers" || 
+            this.state.forecast.shortForecast === "Chance Rain And Snow Showers" ||
+            this.state.forecast.shortForecast  === "Showers And Thunderstorms"){
+            weatherIcons = icons.cloudSunRain;
+        }
+        else if (this.state.forecast.shortForecast === "Slight Chance Rain Showers") {
+            weatherIcons = icons.rainLight;
+        }
+        else if (this.state.forecast.shortForecast === "Rain Showers") {
+            weatherIcons = icons.rainHeavy;
+        }
+        else if (this.state.forecast.shortForecast === "Partly Cloudy" ||
+                this.state.forecast.shortForecast  === "Cloudy") {
+            weatherIcons = icons.cloud;
+        }
+        //Either Night or Day
+        else if (this.state.forecast.shortForecast === "Slight Chance Snow Showers" ||
+                this.state.forecast.shortForecast === "Chance Snow Showers") {
+            weatherIcons = icons.snow;
+        }
+        else {
             weatherIcons = icons.cloudSun;
         }
-        else if (this.state.forecast.shortForecast === "Showers And Thunderstorms Likely" ||
-        this.state.forecast.shortForecast  === "Showers And Thunderstorms" ||
-        this.state.forecast.shortForecast  === "Chance Showers And Thunderstorms then Showers And Thunderstorms") {
-            weatherIcons = icons.cloudBolt;
+            return weatherIcons;
         }
-       else if (this.state.forecast.shortForecast === "Chance Rain Showers then Mostly Sunny" ||
-        this.state.forecast.shortForecast === "Partly Sunny then Slight Chance Rain Showers" ||
-        this.state.forecast.shortForecast === "Slight Chance Rain And Snow Showers then Partly Sunny" ||
-        this.state.forecast.shortForecast === "Chance Rain Showers then Chance Rain And Snow Showers"  ||
-        this.state.forecast.shortForecast === "Chance Rain Showers" || 
-        this.state.forecast.shortForecast === "Chance Rain And Snow Showers" ||
-        this.state.forecast.shortForecast  === "Showers And Thunderstorms"){
-        weatherIcons = icons.cloudSunRain;
-    }
-    else if (this.state.forecast.shortForecast === "Slight Chance Rain Showers") {
-        weatherIcons = icons.rainLight;
-    }
-    else if (this.state.forecast.shortForecast === "Rain Showers") {
-        weatherIcons = icons.rainHeavy;
-    }
-    //Night Icons
-    else if ((this.state.forecast.name === "Tonight" ||
-    this.state.forecast.name === "Overnight") &&
-    this.state.forecast.shortForecast  === "Clear") {
-        weatherIcons = icons.moon;
-   }
-   else if ((this.state.forecast.name === "Tonight" ||
-        this.state.forecast.name === "Overnight") &&
-        (this.state.forecast.shortForecast  === "Chance Showers And Thunderstorms" ||
-        this.state.forecast.shortForecast === "Chance Rain Showers then Chance Rain And Snow Showers"  ||
-        this.state.forecast.shortForecast === "Chance Rain Showers" || 
-        this.state.forecast.shortForecast === "Chance Rain And Snow Showers" ||
-        this.state.forecast.shortForecast === "Slight Chance Rain Showers" ||
-        this.state.forecast.shortForecast === "Rain Showers" ||
-        this.state.forecast.shortForecast  === "Chance Showers And Thunderstorms then Showers And Thunderstorms" ||
-        this.state.forecast.shortForecast  === "Showers And Thunderstorms")) {
-    weatherIcons = icons.cloudMoonRain;
-    }
-    else if (this.state.forecast.name === "Tonight" ||
-   this.state.forecast.name === "Overnight" &&
-   this.state.forecast.shortForecast  === "Partly Cloudy" ||
-   this.state.forecast.shortForecast  === "Cloudy") {
-    weatherIcons = icons.cloudMoon;
-    }
-    else if (this.state.forecast.shortForecast === "Partly Cloudy" ||
-            this.state.forecast.shortForecast  === "Cloudy") {
-        weatherIcons = icons.cloud;
-    }
-    //Either Night or Day
-    else if (this.state.forecast.shortForecast === "Slight Chance Snow Showers" ||
-            this.state.forecast.shortForecast === "Chance Snow Showers") {
-        weatherIcons = icons.snow;
-    }
-    else {
-        weatherIcons = icons.cloudSun;
-    }
-        return weatherIcons;
-    }
 
     
     //Render function to create our HTML based on the JSON info.
