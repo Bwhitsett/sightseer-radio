@@ -18,7 +18,7 @@
 
 //Import statements.
 import React from 'react';
-import { Button, Image, StyleSheet, Text, View } from 'react-native';
+import { Image, StyleSheet, Text, View } from 'react-native';
 class News extends React.Component {
     //Constructor for properties of News class.
     //Holds lat and lon of user if News permissions
@@ -54,7 +54,6 @@ class News extends React.Component {
     
     //Function to fetch our forecast info. Accepts a URL as a param.
     fetchNews(){
-        let topStories=[];
         fetch('https://api.nytimes.com/svc/topstories/v2/home.json?api-key=ASAgp9Ht3AULPVmckjU0TonT7n8Ard0h')
         .then( response => response.json())
         //Legacy code used for debugging, left if needed.

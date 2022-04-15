@@ -18,7 +18,7 @@
 
 //Import statements.
 import React from 'react';
-import { Button, Image, StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faMoon, faCloud, faCloudMoon, faCloudMoonRain, faSun, faCloudSun,
         faCloudSunRain, faCloudBolt, faCloudShowersHeavy, faCloudRain,
@@ -135,27 +135,27 @@ class Weather extends React.Component {
         weatherIcons = icons.rainHeavy;
     }
     //Night Icons
-    else if (this.state.forecast.name === "Tonight" ||
-    this.state.forecast.name === "Overnight" &&
+    else if ((this.state.forecast.name === "Tonight" ||
+    this.state.forecast.name === "Overnight") &&
     this.state.forecast.shortForecast  === "Clear") {
         weatherIcons = icons.moon;
    }
-   else if (this.state.forecast.name === "Tonight" ||
-        this.state.forecast.name === "Overnight" &&
-        this.state.forecast.shortForecast  === "Chance Showers And Thunderstorms" ||
+   else if ((this.state.forecast.name === "Tonight" ||
+        this.state.forecast.name === "Overnight") &&
+        (this.state.forecast.shortForecast  === "Chance Showers And Thunderstorms" ||
         this.state.forecast.shortForecast === "Chance Rain Showers then Chance Rain And Snow Showers"  ||
         this.state.forecast.shortForecast === "Chance Rain Showers" || 
         this.state.forecast.shortForecast === "Chance Rain And Snow Showers" ||
         this.state.forecast.shortForecast === "Slight Chance Rain Showers" ||
         this.state.forecast.shortForecast === "Rain Showers" ||
         this.state.forecast.shortForecast  === "Chance Showers And Thunderstorms then Showers And Thunderstorms" ||
-        this.state.forecast.shortForecast  === "Showers And Thunderstorms") {
+        this.state.forecast.shortForecast  === "Showers And Thunderstorms")) {
     weatherIcons = icons.cloudMoonRain;
     }
-    else if (this.state.forecast.name === "Tonight" ||
-   this.state.forecast.name === "Overnight" &&
-   this.state.forecast.shortForecast  === "Partly Cloudy" ||
-   this.state.forecast.shortForecast  === "Cloudy") {
+    else if ((this.state.forecast.name === "Tonight" ||
+   this.state.forecast.name === "Overnight") &&
+   (this.state.forecast.shortForecast  === "Partly Cloudy" ||
+   this.state.forecast.shortForecast  === "Cloudy")) {
     weatherIcons = icons.cloudMoon;
     }
 

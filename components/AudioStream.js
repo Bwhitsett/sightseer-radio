@@ -1,5 +1,4 @@
-import React, { View } from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react';
 import ReactTwitchEmbedVideo from "react-twitch-embed-video";
 
 class AudioStream extends React.Component {
