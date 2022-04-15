@@ -152,10 +152,10 @@ class Weather extends React.Component {
         this.state.forecast.shortForecast  === "Showers And Thunderstorms")) {
     weatherIcons = icons.cloudMoonRain;
     }
-    else if ((this.state.forecast.name === "Tonight" ||
-   this.state.forecast.name === "Overnight") &&
-   (this.state.forecast.shortForecast  === "Partly Cloudy" ||
-   this.state.forecast.shortForecast  === "Cloudy")) {
+    else if (this.state.forecast.name === "Tonight" ||
+   this.state.forecast.name === "Overnight" &&
+   this.state.forecast.shortForecast  === "Partly Cloudy" ||
+   this.state.forecast.shortForecast  === "Cloudy") {
     weatherIcons = icons.cloudMoon;
     }
 
