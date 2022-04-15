@@ -124,10 +124,6 @@ class Weather extends React.Component {
         this.state.forecast.shortForecast  === "Showers And Thunderstorms"){
         weatherIcons = icons.cloudSunRain;
     }
-    else if (this.state.forecast.shortForecast === "Partly Cloudy" ||
-            this.state.forecast.shortForecast  === "Cloudy") {
-        weatherIcons = icons.cloud;
-    }
     else if (this.state.forecast.shortForecast === "Slight Chance Rain Showers") {
         weatherIcons = icons.rainLight;
     }
@@ -158,7 +154,10 @@ class Weather extends React.Component {
    this.state.forecast.shortForecast  === "Cloudy") {
     weatherIcons = icons.cloudMoon;
     }
-
+    else if (this.state.forecast.shortForecast === "Partly Cloudy" ||
+            this.state.forecast.shortForecast  === "Cloudy") {
+        weatherIcons = icons.cloud;
+    }
     //Either Night or Day
     else if (this.state.forecast.shortForecast === "Slight Chance Snow Showers" ||
             this.state.forecast.shortForecast === "Chance Snow Showers") {
